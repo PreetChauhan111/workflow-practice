@@ -1,0 +1,26 @@
+name: Task 5
+
+on:
+    workflow_dispatch:
+        inputs:
+            run_tests:
+                type: boolean
+                default: false  
+
+jobs:
+    conditional-demo:
+
+        runs-on: ubuntu:latest
+
+        steps:
+
+            - name: Always message
+              run: echo "Build Started"
+
+            - name: Condition 
+              if: ${{ inputs.run_tests }}
+              run: echo "Running tests"
+
+            - if: ${{ !inputs.run_tests }}
+              run: echo "Skipping tests"
+
