@@ -1,0 +1,29 @@
+name: Task 8
+
+on:
+  workflow_dispatch:
+
+jobs:
+
+  producer:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create File
+        run: |
+          touch build.txt
+          echo "Build successful" >> build.txt
+
+      - name: upload artifact
+        uses: actions/upload-artifact@v4
+
+  consumer:
+    runs-on: ubuntu-latest
+    needs: producer
+
+    steps:
+      - name: Download artifact
+        uses: actions/download-artifact@v4
+
+      - name: Print file content
+        run: cat build.txt
