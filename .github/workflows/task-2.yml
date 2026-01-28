@@ -5,7 +5,10 @@ on:
         inputs:
             environment:
                 type: choice
-                options: [dev, stag, prod]
+                options:
+                    - dev
+                    - stag
+                    - prod
                 required: true
             debug:
                 type: boolean
@@ -19,8 +22,14 @@ jobs:
         steps:
 
             - name: Print Environment
-              run: echo "${{inputs.environment}}"
+              run: echo "Environment = ${{ inputs.environment }}"
             
             - name: Debug info
-              if: ${{inputs.debug}}
-              run: echo "Debugging enabled"
+              
+              run: |
+                if [ ${{inputs.debug}} == 'true' ] 
+                then
+                    echo "Debugging Enabled"
+                else
+                    echo "Debugging disabled"
+                fi
