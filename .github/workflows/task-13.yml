@@ -1,0 +1,16 @@
+name: Task 13
+
+on:
+  workflow_dispatch:
+
+permissions:
+  read-all
+  
+jobs:
+  permissions-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Code checkout
+        uses: actions/checkout@v4
+      - name: Print Output
+        run: echo "Permissions hardened"
