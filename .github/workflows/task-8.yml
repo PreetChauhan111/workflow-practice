@@ -16,6 +16,9 @@ jobs:
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
+        with:
+          name: build.txt
+          path: ./build.txt
 
   consumer:
     runs-on: ubuntu-latest
@@ -24,6 +27,8 @@ jobs:
     steps:
       - name: Download artifact
         uses: actions/download-artifact@v4
+        with: 
+          name: build.txt
 
       - name: Print file content
         run: cat build.txt
