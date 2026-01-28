@@ -11,13 +11,12 @@ jobs:
     steps:
       - name: Create File
         run: |
-          touch build.txt
-          echo "Build successful" >> build.txt
+          echo "Build successful" > build.txt
 
       - name: upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: build.txt
+          name: build-output
           path: ./build.txt
 
   consumer:
@@ -28,7 +27,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with: 
-          name: build.txt
+          name: build-output
 
       - name: Print file content
         run: cat build.txt
