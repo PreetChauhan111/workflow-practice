@@ -16,7 +16,7 @@ jobs:
             - name: Printing outputs
               run: |
                 echo "Hello GitHub Actions"
-                echo "Repo: ${{github.event.repository.name}}"
-                echo "Actor: ${{github.event.sender.name}}"
-                echo "Workflow: ${{github.event.workflow.name}}"
+                echo "Repo: ${{github.event.repository}}"
+                echo "Actor: ${{github.actor}}"
+                echo "Workflow: ${{github.workflow}}"
 
