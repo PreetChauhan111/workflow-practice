@@ -1,0 +1,28 @@
+name: Task 3
+
+on: 
+    workflow_dispatch:
+
+env:
+    APP_MODE: "workflow-level"
+
+jobs:
+    variables:
+
+        env:
+            APP_MODE: "job-level"
+
+        runs-on: ubuntu-latest
+
+        steps:
+
+            - name: Code checkout
+              uses: actions/checkout@v4
+
+            - name: Printing variable Job level
+              run: echo "variable = $APP_MODE"
+
+            - name: Printing variable step level
+              env:
+                APP_MODE: "step-level"
+              run: echo "variable = $APP_MODE"
