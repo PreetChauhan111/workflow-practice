@@ -8,9 +8,9 @@ on:
 
 jobs:
   main-only:
+    if: github.ref_name == 'main'
     runs-on: ubuntu-latest
     steps:
       - name: Condition to main
-        if: github.ref_name == 'main'
         run: echo "Running on main branch"
         
