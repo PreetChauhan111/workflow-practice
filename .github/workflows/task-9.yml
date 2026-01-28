@@ -13,4 +13,4 @@ jobs:
       - name: Print branch name
         run: echo "Branch = ${{ github.ref_name }}"
       - name: Print commit SHA
-        run: echo "Commit SHA = ${{ github.event.head_commit.id }}"
+        run: echo "Commit SHA = ${{ github.sha }}"
