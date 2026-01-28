@@ -15,5 +15,4 @@ jobs:
             
             - name: Length of key
               run: |
-                length: ${{ secrets.API_KEY }}
-                echo "Length: ${#length}"
+                echo "Length: $(expr length "${{ secrets.API_KEY }}")"
