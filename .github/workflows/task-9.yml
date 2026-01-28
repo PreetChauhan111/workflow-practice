@@ -1,0 +1,16 @@
+name: Task 9
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  branch-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print branch name
+        run: echo "Branch = ${{ github.ref_name }}"
+      - name: Print commit SHA
+        run: echo "Commit SHA = ${{ github.event.head_commit.id }}"
