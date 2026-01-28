@@ -1,0 +1,22 @@
+name: Task 1 
+
+on:
+    workflow_dispatch:
+
+jobs:
+    hello-ci:
+        
+        runs-on: ubuntu-latest
+
+        steps:
+
+            - name: Code Checkout
+              run: actions/checkout@v4
+            
+            - name: Printing outputs
+              run: |
+                echo "Hello GitHub Actions"
+                echo "Repo: ${{github.event.repository.name}}"
+                echo "Actor: ${{github.event.sender.name}}"
+                echo "Workflow: ${{github.event.workflow.name}}"
+
