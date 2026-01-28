@@ -1,0 +1,27 @@
+name: task - 2
+
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                type: choice
+                options: [dev, stag, prod]
+                required: true
+            debug:
+                type: boolean
+                default: false
+
+jobs:
+    input-demo:
+
+        runs-on: ubuntu-latest
+
+        steps:
+
+            - name: Print Environment
+              run: echo "${{inputs.environment}}"
+            
+            - name: Debug info
+              run: |
+                if ${{inputs.debug}}
+                    echo "Debugging enabled"
