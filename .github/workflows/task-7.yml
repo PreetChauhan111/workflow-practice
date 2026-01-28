@@ -13,7 +13,7 @@ jobs:
     steps:
       - name: Generate Output
         id: version
-        run: echo '1.0.0' > "$GITHUB_OUTPUT"
+        run: echo 'version=1.0.0' >> "$GITHUB_OUTPUT"
 
   consume:
     needs: generate
