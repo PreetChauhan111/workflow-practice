@@ -1,0 +1,21 @@
+name: Task 6
+
+on:
+  workflow_dispatch:
+
+jobs:
+  
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Output
+        run: echo "Build Completed"
+  
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Output
+        run: echo "Tests Running"
