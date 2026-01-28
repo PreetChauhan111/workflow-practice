@@ -1,0 +1,18 @@
+name: Task 4
+
+on:
+    workflow_dispatch:
+
+jobs:
+    secret-demo:
+
+        runs-on: ubuntu-latest
+
+        steps:
+
+            - name: Print a message
+              run: echo "API key received"
+            
+            - name: Length of key
+              run: |
+                echo "Length: ${#${{ secrets.API_KEY }}}"
