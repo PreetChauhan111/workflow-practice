@@ -1,0 +1,19 @@
+name: Task 7
+
+on:
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    outputs: 
+      VERSION: 1.0.0
+
+  consume:
+    needs: generate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Output
+        run: echo "Output = ${{ needs.generate.outputs.VERSION }}"
