@@ -1,0 +1,16 @@
+name: Task 10
+
+on:
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  main-only:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Condition to main
+        if: github.ref_name == 'main'
+        run: echo "Running on main branch"
+        
