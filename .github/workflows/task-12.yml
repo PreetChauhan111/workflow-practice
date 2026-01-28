@@ -6,12 +6,14 @@ on:
       - main
       - develop
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref_name }}
+  cancel-in-progress: true
+
 jobs:
   concurrency-demo:
     runs-on: ubuntu-latest
     steps:
       - name: Print Branch
-        run: echo "Running latest workflow for ${{ github.head_ref }}"
-    concurrency:
-      group: branches
-      cancel-in-progress: true
+        run: echo "Running latest workflow for ${{ github.ref_name }}"
+
