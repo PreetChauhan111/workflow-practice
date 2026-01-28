@@ -1,4 +1,4 @@
-name: task - 2
+name: Task 2
 
 on:
     workflow_dispatch:
@@ -22,6 +22,5 @@ jobs:
               run: echo "${{inputs.environment}}"
             
             - name: Debug info
-              run: |
-                if ${{inputs.debug}}
-                    echo "Debugging enabled"
+              if: ${{inputs.debug}}
+              run: echo "Debugging enabled"
