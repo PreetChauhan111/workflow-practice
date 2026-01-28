@@ -1,0 +1,17 @@
+name: Task 12
+
+on: 
+  push:
+    branches:
+      - main
+      - develop
+
+jobs:
+  concurrency-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Print Branch
+        run: echo "Running latest workflow for ${{ github.head_ref }}"
+    concurrency:
+      group: branches
+      cancel-in-progress: true

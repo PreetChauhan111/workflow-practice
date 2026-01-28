@@ -3,7 +3,6 @@ name: Task 11
 on: 
   pull_request:
     branches:
-      - main
       - develop
 
 jobs:

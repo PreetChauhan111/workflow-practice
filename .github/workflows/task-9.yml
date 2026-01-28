@@ -3,7 +3,6 @@ name: Task 9
 on:
   push:
     branches:
-      - main
       - develop
 
 jobs:
