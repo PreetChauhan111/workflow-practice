@@ -3,7 +3,6 @@ name: Task 12
 on: 
   push:
     branches:
-      - main
       - develop
 
 concurrency:
