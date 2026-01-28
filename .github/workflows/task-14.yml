@@ -11,4 +11,4 @@ jobs:
       - name: Output and Sleep
         run: |
           echo "Job Started"
-          Sleep 90
+          sleep 90
