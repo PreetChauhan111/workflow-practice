@@ -8,7 +8,12 @@ jobs:
     runs-on: ubuntu-latest
 
     outputs: 
-      VERSION: 1.0.0
+      VERSION: ${{ steps.version.outputs.version }}
+
+    steps:
+      - name: Generate Output
+        id: version
+        run: echo '1.0.0' > "$GITHUB_OUTPUT"
 
   consume:
     needs: generate
